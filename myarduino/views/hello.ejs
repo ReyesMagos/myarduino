@@ -1,0 +1,102 @@
+
+<script type="text/javascript" src="/colorPicker.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){    
+	   $('#led2switch').click(function() {
+	     	console.log($('#led2switch').val());
+	      	$.ajax({
+	     		url: '/robot',
+	     		type: 'post',
+	     		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+	     		data: {led2: $('#led2switch').val()},
+	     	})
+	     	.done(function() {
+	     		console.log("success");
+	     	})
+	     	.fail(function() {
+	     		console.log("error");
+	     	})
+	     	.always(function() {
+	     		console.log("complete");
+	     	});
+	     });	
+
+	     $('#led1').click(function() {
+	     	//alert($('#motorswitch').val());
+	      	$.ajax({
+	     		url: '/robot',
+	     		type: 'post',
+	     		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+	     		data: {led1: $('#led1').val()},
+	     	})
+	     	.done(function() {
+	     		console.log("success");
+	     	})
+	     	.fail(function() {
+	     		console.log("error");
+	     	})
+	     	.always(function() {
+	     		console.log("complete");
+	     	});
+	     });
+
+		$('#ledrgbswitch').click(function() {
+			     	//alert($('#motorswitch').val());
+			      	$.ajax({
+			     		url: '/robot',
+			     		type: 'post',
+			     		dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+			     		data: {rgb: $('#ledrgbswitch').val()},
+			     	})
+			     	.done(function() {
+			     		console.log("success");
+			     	})
+			     	.fail(function() {
+			     		console.log("error");
+			     	})
+			     	.always(function() {
+			     		console.log("complete");
+			     	});
+			     });
+
+		 	
+			});
+
+</script>
+
+
+
+<div class="container">
+	<h1>Hello MOTORS </h1>
+	
+	<form class="form-signin" >
+		
+		</br>
+		<label>LEDS</label>
+		<div class="onoffswitch">
+    		<input type="checkbox"  name="led1" class="onoffswitch-checkbox" id="led1">
+		    <label class="onoffswitch-label" for="led1">
+		        <span class="onoffswitch-inner"></span>
+		        <span class="onoffswitch-switch"></span>
+		    </label>
+		</div>
+		<label>Led  Control</label>
+		<div class="onoffswitch">
+    		<input type="checkbox"  class="onoffswitch-checkbox" id="led2switch">
+		    <label class="onoffswitch-label" for="led2switch">
+		        <span class="onoffswitch-inner" value="off"></span>
+		        <span class="onoffswitch-switch"></span>
+		    </label>
+		</div>
+
+		<label>Red Color Led Control</label>
+	
+
+		</form>
+		</br>
+		<label>Pick a Color</label>
+		</br>
+		<canvas width="600" height="440" id="canvaspicker"></canvas>
+</div>
+
+
